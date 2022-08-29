@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiMe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="2.ico">
+</head>
+<body>
+    <section id="section">
+        <nav class="navg" id="top">
+            <img title="Jaya Sai Thaurn Pechetti" src="nike.jpg" class="profile">
+            <span>MiMe</span>
+            <ul class="elements" id="horizontal">
+                <li class="home1" id="home2"><a href="index.html">HOME</a></li>
+                <li class="home1"><a href="form.html">REGISTER</a></li>
+                <li class="home1" id="home"><a href="#">BRANCH</a>
+                    <div class="sublist1">
+                        <ul style="list-style-type:none">
+                        <li class="student1"><a href="#">CSE</a>
+                            <div class="sublist2 sublist">
+                                <ul style="list-style-type:none">
+                                    <li ><a href="#">FACULTY</a></li>
+                                    <li><a href="#">STUDENT</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">ECE</a></li>
+                        
+                        </ul>
+                    </div>
+                </li>
+                
+                <li class="home1"><a href="contact.html">CONTACT</a></li>
+            </ul>
+            
+            <img src="menu.png" class="tharun tharun2" id="top2" onclick="hide_v_nav()" onmouseover="show_v_nav()">
+        </nav>
+        <div class="sublist2 sublist">
+            <ul style="list-style-type:none">
+                <li ><a href="#">Student</a></li>
+                <li><a href="#">Teacher</a></li>
+            </ul>
+        </div>
+        <nav class="navg" id="vertical"  onmouseover="change()" onmouseleave="hide_v_nav()">
+            <ul class="elements">
+                <li class="home1" id="home"><a href="#">BRANCH</a>
+                    <div class="sublist1">
+                        <ul style="list-style-type:none">
+                        <li class="student1"><a href="#">CSE</a>
+                            <div class="sublist2">
+                                <ul style="list-style-type:none">
+                                    <li ><a href="#">FACULTY</a></li>
+                                    <li><a href="#">STUDENT</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">ECE</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="home1" id="home2"><a href="index.html">HOME</a></li>
+                <li class="home1"><a href="form.html">REGISTER</a></li>
+                <li class="home1"><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <h2>JavaScript Geolocation API</h2>
+        <p>Click the button to get your coordinates.</p>
+        
+        <button onclick="getLocation()">Try It</button>
+        
+        <p id="demo"></p><br>
+        <span id="mapholder"></span>
+        
+        
+    </section>
+    <footer class="footer">
+        <!-- hitwebcounter Code START 
+<a href="https://www.hitwebcounter.com" target="_blank">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=8014398&style=0009&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter"   border="0" /></a>        -->
+    <a href="#top" class="bottom"><img src="logo.png"></a> 
+    </footer>
+    <script>
+        const x = document.getElementById("demo");
+        var x1=document.getElementById("vertical");
+function show_v_nav(){
+    x1.style.display="block";
+}
+function hide_v_nav(){
+    x1.style.display="none";
+}
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        }
+        
+        // function showPosition(position) {
+        //   x.innerHTML = "Latitude: " + position.coords.latitude + 
+        //   "<br>Longitude: " + position.coords.longitude;
+        // }
+        function showPosition(position) {
+  let latlon = position.coords.latitude + "," + position.coords.longitude;
+  let img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false&key=AIzaSyBQ-pElbc8X632XoHLKf8zkpYhZlj07_nk";
+  document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+
+}
+function preventBack() { window.history.forward(); }  
+    setTimeout("preventBack()", 0);  
+    window.onunload = function () { null };
+
+        </script>
+</body>
+</html>
